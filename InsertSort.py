@@ -7,7 +7,7 @@
 时间复杂度：O(n^2) 空间复杂度：O(1)
 '''
 
-def arr_sort(arr):
+def insert_sort(arr):
     for i in range(1, len(arr)):
         for j in range(i):
             if arr[i]<arr[j]:
@@ -16,4 +16,4 @@ def arr_sort(arr):
     return arr
 
 if __name__ == '__main__':
-    print(arr_sort([3, 7, 4, 8, 6, 1, 5, 2, 9]))
+    print(insert_sort([3, 7, 4, 8, 6, 1, 5, 2, 9]))
