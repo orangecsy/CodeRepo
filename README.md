@@ -1,4 +1,6 @@
 # CodeRepo
-记录一些算法题以备查阅
+记录一些代码以备查阅
 
-Sort文件夹：排序算法
+Sort: 排序算法
+Array: 数组相关
+Javascript: js相关
