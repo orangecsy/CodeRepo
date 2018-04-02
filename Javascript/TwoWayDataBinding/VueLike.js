@@ -94,6 +94,9 @@ function compile(node, vm){
                 new Watcher(vm, node, name, "input");
             }
         }
+        if (child = node.firstChild) {//遍历其子节点
+            compile(child, vm);
+        }
     }
     if(node.nodeType === 3){
         let reg = /\{\{(.*)\}\}/;
