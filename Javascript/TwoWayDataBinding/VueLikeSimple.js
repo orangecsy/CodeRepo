@@ -1,5 +1,5 @@
 /**
- * 通过数据劫持实现双向绑定
+ * 通过数据劫持实现双向绑定的简单实现
  * 函数defineProperty保存变量val=obj.txt
  * Object.defineProperty劫持属性obj.txt
  * obj为数据对象

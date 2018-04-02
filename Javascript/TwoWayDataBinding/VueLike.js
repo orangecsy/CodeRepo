@@ -1,10 +1,22 @@
+/**
+ * 通过数据劫持实现双向绑定的初步完整实现
+ * 第一部分的作用是遍历vm.el下所有节点，编译后重新添加到vm.el下
+ * compile(node, vm)分别处理元素节点和文本节点，为有v-model的节
+ * 点或模板字符串赋值，并添加Watcher
+ * 第二部分遍历vm.data下所有数据，为每一个数据添加消息分发者Dep，
+ * 利用Object.defineProperty定义set、get方法get方法中将绑定的节
+ * 点添加到消息分发者Dep的sub数组中，set方法更新属性的值并调用分
+ * 发者的分发方法通知所有sub数组成员
+ * 第三部分构造观察者Watcher、分发者Dep，为节点绑定Watcher，为数
+ * 据绑定Dep
+ */
 
 //第三部分
 function Watcher(vm, node, name, nodeType){
     Dep.target = this;
-    this.name = name;
-    this.node = node;
     this.vm = vm;
+    this.node = node;
+    this.name = name;
     this.nodeType = nodeType;
     this.update();
     Dep.target = null;
@@ -13,11 +25,10 @@ function Watcher(vm, node, name, nodeType){
 Watcher.prototype = {
     update: function(){
         this.get();
-        // this.node.nodeValue = this.value;
-        if (this.nodeType == 'text') {
+        if (this.nodeType === 'text') {
             this.node.nodeValue = this.value;
         }
-        if (this.nodeType == 'input') {
+        if (this.nodeType === 'input') {
             this.node.value = this.value;
         }
     },
@@ -43,9 +54,7 @@ Dep.prototype = {
 
 //第二部分
 function defineProperty(vm, key, val){
-
     var dep = new Dep();
-
     Object.defineProperty(vm, key, {
         get: function (){
             if(Dep.target){
@@ -54,8 +63,6 @@ function defineProperty(vm, key, val){
             return val;
         },
         set: function (newValue){
-            // document.getElementById("show").innerHTML = newValue;
-            // document.getElementById("input").value = newValue;
             if(newValue === val){
                 return;
             }
@@ -82,11 +89,11 @@ function compile(node, vm){
                 node.addEventListener('keyup', function(e){
                     vm[name] = e.target.value;
                 });
-                node.value = vm.data[name];
+                node.value = vm[name];
                 node.removeAttribute('v-model');
+                new Watcher(vm, node, name, "input");
             }
         }
-        new Watcher(vm, node, name, "input");
     }
     if(node.nodeType === 3){
         let reg = /\{\{(.*)\}\}/;
@@ -111,8 +118,8 @@ function nodeToFragment(node, vm){
 
 function Vue(options){
     var id = options.el;
-    this.data = options.data;
-    observe(this.data, this);//添加view=>model的绑定
+    var data = options.data;
+    observe(data, this);//添加view=>model的绑定
     var dom = nodeToFragment(document.getElementById(id), this);
     document.getElementById(id).appendChild(dom);
 }
@@ -120,7 +127,6 @@ function Vue(options){
 var vm = new Vue({
     el: 'app',
     data: {
-        input: 'hello',
-        text: 'world'
+        input: 'hello'
     }
 });
