@@ -5,6 +5,7 @@
  * obj为数据对象
  * 最后绑定input的keyup事件，完成obj.txt的赋值
  */
+ 
 function defineProperty(obj, key){
     var val;
     Object.defineProperty(obj, 'txt', {  
@@ -21,6 +22,7 @@ function defineProperty(obj, key){
         }  
     });
 }
+
 var obj = {};
 defineProperty(obj, 'txt');
 document.getElementById('input').addEventListener('keyup', function (e) {  
