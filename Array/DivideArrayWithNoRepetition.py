@@ -6,7 +6,6 @@ dp[i+1]为从i-1向前遍历，至不能满足条件的k，k至i-1的dp值的和
 输出：所有可能的划分数，如：16
 '''
 
-
 if __name__ == '__main__':
     n = int(raw_input())
     nArr = list(map(int, raw_input().split()))
