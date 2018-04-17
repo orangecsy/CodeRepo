@@ -1,4 +1,4 @@
-# CodeRepo
+# CodeRepository
 整合、记录平时练习过的代码  
 ### Array: 数组相关  
 DivideArrayWithNoRepetition.py 划分无重复元素子数组  
