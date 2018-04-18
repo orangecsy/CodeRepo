@@ -13,4 +13,4 @@ def img_to_base64(path):
 
 
 if __name__ == '__main__':
-	print(img_to_base64(r'C:\Users\Administrator\Desktop\1.png'))
+	print(img_to_base64(r'C:\Users\Administrator\Desktop\1.png')) #更改图片地址
