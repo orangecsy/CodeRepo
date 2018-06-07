@@ -17,6 +17,7 @@ TwoWayDataBinding 双向绑定
 DeepCopy.js 数组对象深拷贝  
 ObserverByProxy.js 使用Proxy的观察者模式  
 SubscribePublish.js 订阅发布模式  
+Ajax.js 原生Ajax  
 ### Tools: 工具相关  
 ImgToBase64.py 图片转为Base64，方便插入MarkDown中  
 
