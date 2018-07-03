@@ -1,3 +1,7 @@
+/**
+ * 使用Request和Cheerio的nodejs爬虫
+ * @param {string} url 请求地址
+*/
 
 const request = require('request');
 const cheerio = require('cheerio');
