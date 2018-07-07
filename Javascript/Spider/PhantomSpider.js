@@ -1,6 +1,6 @@
 /**
  * 使用phantom.js爬取网页
- * @param {string} url 要爬的地址
+ * @param {string} url 要爬取的地址
 */
 
 const page = require('webpage').create();
