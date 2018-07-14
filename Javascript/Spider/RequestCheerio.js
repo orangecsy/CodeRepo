@@ -1,6 +1,6 @@
 /**
  * 使用Request和Cheerio的nodejs爬虫
- * @param {string} url 要爬取的地址
+ * @param {string} url 要爬取的url地址
 */
 
 const request = require('request');
