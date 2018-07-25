@@ -1,5 +1,5 @@
 /**
- * 获取所在 App 的名称 
+ * 获取页面所在 App 的名称 
  * ### Example
  * import { getAppName } from './getAppName.js';
  * const app = getAppName();
