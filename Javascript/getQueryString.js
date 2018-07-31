@@ -1,5 +1,5 @@
 /**
- * 获取查询串
+ * 获取 URL 查询串
  * @param {string} key 键值
  * ### Example
  * import { getQueryString } from './getQueryString.js';
